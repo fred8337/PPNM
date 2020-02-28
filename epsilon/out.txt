@@ -1,0 +1,6 @@
+My max int is 2147483647, compared to 2147483647 
+My min int is -2147483648, compared to -2147483648 
+Epsilon for double is 2.22044604925031E-16 compared to 2.22044604925031E-16
+Epsilon for float is 1.192093E-07 compared to 1.19209289550781E-07
+15.40368 compared to 18.80792
+21.3716310803036 compared to 21.3716310812321
