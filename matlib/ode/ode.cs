@@ -11,11 +11,11 @@ public static vector rk23 // calls driver with rkstep23 stepper
 double a, // initial point
 vector ya, // functions at the initial point
 double b, // final point
+List<double> xlist=null, // list of x's, if needed
+List<vector> ylist=null, // list of y's, if needed
 double acc=1e-3, // absolute accuracy goal
 double eps=1e-3, // relative accuracy goal
 double h=0.1, //initial step-size
-List<double> xlist=null, // list of x's, if needed
-List<vector> ylist=null, // list of y's, if needed
 int limit=999 // maximal number of steps
 )
 {
