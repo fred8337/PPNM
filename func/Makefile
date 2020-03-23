@@ -1,5 +1,6 @@
 out.txt: main.exe
 	mono $< > $@
+	cat out.txt
 main.exe: main.cs matlib.dll
 	mcs $< -reference:matlib.dll
 

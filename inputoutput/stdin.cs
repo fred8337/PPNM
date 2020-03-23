@@ -24,8 +24,8 @@ class stdin{
         
         }
         while(true);
-        inputfile.close();
-        outputfile.close();
+        // inputfile.close();
+        // outputfile.close();
         return 0;
     }
 }

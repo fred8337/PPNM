@@ -13,12 +13,7 @@ public double this[int i]{
 
 public vector(int n){data=new double[n];}
 public vector(double[] a){data=a;}
-public vector(double a, double b)
-	{ data = new double[]{a,b}; }
-public vector(double a, double b, double c)
-	{ data = new double[]{a,b,c}; }
-public vector(double a, double b, double c, double d)
-	{ data = new double[]{a,b,c,d}; }
+public vector(double a){data = new double[] {a};}
 
 public static implicit operator vector (double[] a){ return new vector(a); }
 public static implicit operator double[] (vector v){ return v.data; }
@@ -52,30 +47,9 @@ public static vector operator/(vector v, double a){
 	for(int i=0;i<v.size;i++)r[i]=v[i]/a;
 	return r; }
 
-public double dot(vector o){
-	double sum=0;
-	for(int i=0;i<size;i++)sum+=this[i]*o[i];
-	return sum;
-	}
-
-public double norm(){
-	double meanabs=0;
-	for(int i=0;i<size;i++)meanabs+=this[i];
-	meanabs/=size;
-	double sum=0;
-	for(int i=0;i<size;i++)sum+=(this[i]/meanabs)*(this[i]/meanabs);
-	return meanabs*sum;
-	}
-
-public vector copy(){
-	vector b=new vector(this.size);
-	for(int i=0;i<this.size;i++)b[i]=this[i];
-	return b;
-}
-
-public static bool approx(double x, double y, double acc=1e-9, double eps=1e-9){
-	if(Abs(x-y)<acc)return true;
-	if(Abs(x-y)/Max(Abs(x),Abs(y))<eps)return true;
+public static bool approx(double x, double y, double eps=1e-9){
+	if(Math.Abs(x-y)<eps)return true;
+	if(Math.Abs(x-y)/(Math.Abs(x)+Math.Abs(y))<eps)return true;
 	return false;
 	}
 
@@ -84,5 +58,21 @@ public bool approx(vector o){
 		if(!approx(this[i],o[i]))return false;
 	return true;
 	}
+
+public double norm(){
+	double meanabs=0;
+	for(int i=0;i<size;i++)meanabs+=Abs(this[i]);
+	meanabs/=size;
+	double sum=0;
+	for(int i=0;i<size;i++)sum+=(this[i]/meanabs)*(this[i]/meanabs);
+	return meanabs*Sqrt(sum);
+	}
+
+public double dot(vector o){
+	double sum=0;
+	for(int i=0;i<size;i++)sum+=this[i]*o[i];
+	return sum;
+	}
+
 
 }//vector

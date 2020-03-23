@@ -3,7 +3,7 @@ using static System.Math;
 
 
 public static class Lspline{
-    public static double linterp(vector x, vector y, double z){
+    public static double LInterp(vector x, vector y, double z){
         int i=0, j=x.size-1;
         while (j-i>1){
             int m=(i+j)/2; 
@@ -12,12 +12,14 @@ public static class Lspline{
         }
         return y[i]+(y[i+1]-y[i])/(x[i+1]-x[i])*(z-x[i]);
     }
-    public static double linterpInteg(vector x, vector y, double z){
+    public static double LInterpInteg(vector x, vector y, double z){
         double result = 0;
-        double p;
-        for(int i=0;i<x.size-1;i++){
-            result+=x[i];
+        int i = 0;
+        while(z>x[i+1]){
+            result += y[i]*(x[i+1]-x[i])+(1/2)*((y[i+1]-y[i])/(x[i+1]-x[i]))*(x[i+1]-x[i])*(x[i+1]-x[i]);
+            i++;
         }
+        result += y[i]*(z-x[i])+(1/2)*((y[i+1]-y[i])/(x[i+1]-x[i]))*(z-x[i])*(z-x[i]);
         return result;
     }
 }

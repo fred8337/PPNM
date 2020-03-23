@@ -6,6 +6,9 @@ public struct vector3d{
         this.y=y;
         this.z=z;
     }
+    public override string ToString(){
+        return $"({x}, {y}, {z})";
+    }
     public static vector3d operator+(vector3d a, vector3d b){
         vector3d result = new vector3d(0, 0, 0);
         result.x = a.x+b.x;
@@ -30,12 +33,16 @@ public struct vector3d{
     public static vector3d operator*(vector3d a, double b){
         return b*a;
     }
-    public static double dot_product(vector3d a, vector3d b){
+    public static double dotProduct(vector3d a, vector3d b){
         double result = a.x*b.x+a.y*b.y+a.z*b.z;
         return result;
     }
     public static double magnitude(vector3d a){
-        double result = sqrt(pow(a.x, 2), pow(a.y, 2), pow(a.z, 2));
+        double result = Sqrt(Pow(a.x, 2)+Pow(a.y, 2)+Pow(a.z, 2));
+        return result;
+    }
+    public static vector3d vectorProduct(vector3d a, vector3d b){
+        vector3d result = new vector3d(a.y*b.z-b.y*a.z, -(a.x*b.z-a.z*b.x), a.x*b.y-a.y*b.x);
         return result;
     }
     }

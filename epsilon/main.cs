@@ -2,7 +2,7 @@ using static System.Console;
 using static System.Math;
 using static cmath;
 using static complex;
-using static Approx;
+
 class main{
     public static void Main(){
        int i = 1;

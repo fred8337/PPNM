@@ -16,15 +16,15 @@
 # clean:
 # 	rm --force out* *.dll *.exe
 
-CSFLAGS = -optimize+ - platform:arm
+CSFLAGS = -optimize+ - platform:amdx86
 .PHONEY:all
 all: out.txt
 	cat out.txt
 
 out.txt : main.exe 
 	mono main.exe > out.txt
-main.exe : main.cs cmath.dll approx.dll
-	mcs $(CSFALGS) -reference:cmath.dll -reference:approx.dll -out:main.exe main.cs
+main.exe : main.cs cmath.dll
+	mcs $(CFLAGS) -reference:cmath.dll -out:main.exe main.cs
 
 cmath.dll: ../complex/cmath.cs ../complex/complex.cs
 	mcs $^ -target:library -out:$@ 
