@@ -1,0 +1,6 @@
+set term svg fsize 18 background rgb "white"
+set out "plot.svg"
+set tics out
+set key out
+plot "ExpData.txt" u 1:2:3 t "ExpData" w yerrorbars \
+,"Fit.txt" u 1:2 t "Fit" w l

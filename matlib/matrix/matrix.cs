@@ -102,6 +102,14 @@ public static vector operator* (matrix a, vector v){
 	return u;
 	}
 
+public static vector operator% (matrix a, vector v){
+	var u = new vector(a.size2);
+	for(int k=0;k<a.size1;k++)
+	for(int i=0;i<a.size2;i++)
+		u[i]+=a[k,i]*v[k];
+	return u;
+	}
+
 public matrix(vector e) : this(e.size,e.size) { for(int i=0;i<e.size;i++)this[i,i]=e[i]; }
 
 public void set(int r, int c, double value){ this[r,c]=value; }
@@ -175,31 +183,20 @@ public matrix transpose(){
 	return c;
 	}
 
-public void print(){print("");}
-public void print(string s){
+public static void scale(matrix M,double x){
+	for(int j=0;j<M.size2;j++)
+	for(int i=0;i<M.size1;i++)
+		M[i,j]*=x;
+	}
+
+public void print(string s="",string format="{0,10:g3} "){
 	System.Console.WriteLine(s);
 	for(int ir=0;ir<this.size1;ir++){
 	for(int ic=0;ic<this.size2;ic++)
-		System.Console.Write("{0,9:F3} ",this[ir,ic]);
+		System.Console.Write(format,this[ir,ic]);
 		System.Console.WriteLine();
 		}
 	}
-
-public static bool double_equal(double a, double b, double eps=1e-6){
-	if(System.Math.Abs(a-b)<eps)return true;
-	if(Math.Abs(a-b)/(Math.Abs(a)+Math.Abs(b)) < eps/2)return true;
-	return false;
-}
-
-public bool equals(matrix B,double eps=1e-6){
-	if(this.size1!=B.size1)return false;
-	if(this.size2!=B.size2)return false;
-	for(int i=0;i<size1;i++)
-		for(int j=0;j<size2;j++)
-			if(!double_equal(this[i,j],B[i,j],eps))
-				return false;
-	return true;
-}
 
 public static bool approx(double a, double b, double acc=1e-6, double eps=1e-6){
 	if(Abs(a-b)<acc)return true;
@@ -217,14 +214,4 @@ public bool approx(matrix B,double acc=1e-6, double eps=1e-6){
 	return true;
 }
 
-
-public static vector operator% (matrix a, vector v){
-	var u = new vector(a.size2);
-	for(int k=0;k<a.size1;k++)
-	for(int i=0;i<a.size2;i++)
-		u[i]+=a[k,i]*v[k];
-	return u;
-	}
-
 }//matrix
-

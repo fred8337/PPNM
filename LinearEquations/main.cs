@@ -22,28 +22,43 @@ public static class main
         // var Ares = data.Q*data.R;
         // Ares.print();
 
+        // Random fixRand = new Random(0);
+        // matrix A = new matrix(5, 5);
+        // vector B = new vector(5);
+        // for(int i = 0; i < A.size1; i++)
+        // {
+        //     for(int j = 0; j < A.size2; j++)
+        //     {
+        //         A[j][i] = fixRand.NextDouble();
+        //     }
+        // }
+        // for(int i = 0; i < B.size; i++)
+        // {
+        //     B[i] = fixRand.NextDouble();
+        // }
+        // A.print();
+        // B.print();
+        // var data = LinEq.QrGsDecomp(A);
+        // data.Q.print();
+        // data.R.print();
+        // var res = LinEq.QrGsSolve(data, B);
+        // res.print();
+        // var check = A*res;
+        // check.print();
         Random fixRand = new Random(0);
         matrix A = new matrix(5, 5);
-        vector B = new vector(5);
         for(int i = 0; i < A.size1; i++)
         {
             for(int j = 0; j < A.size2; j++)
             {
-                A[j][i] = fixRand.NextDouble();
+                A[i, j] = fixRand.NextDouble();
             }
         }
-        for(int i = 0; i < B.size; i++)
-        {
-            B[i] = fixRand.NextDouble();
-        }
         A.print();
-        B.print();
-        var data = LinEq.QrGsDecomp(A);
-        data.Q.print();
-        data.R.print();
-        var res = LinEq.QrGsSolve(data, B);
-        res.print();
-        var check = A*res;
-        check.print();
-        }
+        var dataB = LinEq.QrGsDecomp(A);
+        var B = LinEq.inverse(dataB);
+        var C = A*B;
+        C.print();
+
+    }
 }
