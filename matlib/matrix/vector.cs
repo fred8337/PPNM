@@ -13,14 +13,21 @@ public double this[int i]{
 
 public vector(int n){data=new double[n];}
 public vector(double[] a){data=a;}
-public vector(double a){data = new double[] {a};}
+public vector(double a)
+	{ data = new double[]{a}; }
+public vector(double a, double b)
+	{ data = new double[]{a,b}; }
+public vector(double a, double b, double c)
+	{ data = new double[]{a,b,c}; }
+public vector(double a, double b, double c, double d)
+	{ data = new double[]{a,b,c,d}; }
 
 public static implicit operator vector (double[] a){ return new vector(a); }
 public static implicit operator double[] (vector v){ return v.data; }
 
-public void print(string s=""){
+public void print(string s="",string format="{0,10:g3} "){
 	System.Console.Write(s);
-	for(int i=0;i<size;i++) System.Console.Write("{0:f3} ",this[i]);
+	for(int i=0;i<size;i++) System.Console.Write(format,this[i]);
 	System.Console.Write("\n");
 }
 
@@ -47,16 +54,13 @@ public static vector operator/(vector v, double a){
 	for(int i=0;i<v.size;i++)r[i]=v[i]/a;
 	return r; }
 
-public static bool approx(double x, double y, double eps=1e-9){
-	if(Math.Abs(x-y)<eps)return true;
-	if(Math.Abs(x-y)/(Math.Abs(x)+Math.Abs(y))<eps)return true;
-	return false;
+public double dot(vector o){
+	double sum=0;
+	for(int i=0;i<size;i++)sum+=this[i]*o[i];
+	return sum;
 	}
-
-public bool approx(vector o){
-	for(int i=0;i<size;i++)
-		if(!approx(this[i],o[i]))return false;
-	return true;
+public static double operator%(vector a,vector b){
+	return a.dot(b);
 	}
 
 public double norm(){
@@ -68,11 +72,34 @@ public double norm(){
 	return meanabs*Sqrt(sum);
 	}
 
-public double dot(vector o){
-	double sum=0;
-	for(int i=0;i<size;i++)sum+=this[i]*o[i];
-	return sum;
+public vector copy(){
+	vector b=new vector(this.size);
+	for(int i=0;i<this.size;i++)b[i]=this[i];
+	return b;
+}
+
+public static bool approx(double x, double y, double acc=1e-9, double eps=1e-9){
+	if(Abs(x-y)<acc)return true;
+	if(Abs(x-y)/Max(Abs(x),Abs(y))<eps)return true;
+	return false;
 	}
 
+public static bool approx(vector a,vector b,double acc=1e-9,double eps=1e-9){
+	if(a.size!=b.size)return false;
+	for(int i=0;i<a.size;i++)
+		if(!approx(a[i],b[i],acc,eps))return false;
+	return true;
+}
+public bool approx(vector o){
+	for(int i=0;i<size;i++)
+		if(!approx(this[i],o[i]))return false;
+	return true;
+	}
+
+public vector map(Func<double,double> f){
+	vector v=this.copy();
+	for(int i=0;i<v.size;i++)v[i]=f(v[i]);
+	return v;
+	}
 
 }//vector
