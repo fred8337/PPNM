@@ -1,0 +1,5 @@
+Res1 is 0.666953909054655 compared to 0.666666666666667 in 16 calls
+Res2 is 3.14183457802727 compared to 3.14159265358979 in 28 calls
+Res3 is 1.9998094682884 compared to 2 in 484 calls
+Res4 is -3.99993397139666 compared to -4 in 556 calls
+Adaptive is 3.14159265769177 in 560 calls, compared to Curtis-Clenshaw 3.14159265358979 in 4 calls, compared to o8av 3.14158836545417 in 16 calls.
