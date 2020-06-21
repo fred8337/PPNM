@@ -1,0 +1,28 @@
+Randomly generated upper Hessenberg matrix. Be warned, the algorithm from the paper was incorrect, and will only work for matrices with same properties as their example. This is thus a different algorithm than the one I was asked to implement because Mono does not support .NET 3.0, array slicing is not supported, and the algorithm looks like O(n^3), but would be O(N^2+k) in .NET 3.0..
+
+     0.726      0.559      0.292     0.0304      0.817 
+     0.559      0.906      0.467      0.862      0.848 
+     0.292      0.467      0.633      0.995      0.992 
+         0      0.862      0.995      0.677     0.0326 
+         0          0      0.992     0.0326        0.7 
+U
+
+     0.726      0.559      0.292     0.0304      0.817 
+         0      0.476      0.243      0.839      0.219 
+         0   2.78e-17      0.392      0.555      0.552 
+         0          0          0      -1.63      -1.15 
+         0          0          0          0      0.269 
+L
+
+         1          0          0          0          0 
+      0.77          1          0          0          0 
+     0.402       0.51          1          0          0 
+         0       1.81       1.42          1          0 
+         0          0       2.53      0.842          1 
+LU
+
+     0.726      0.559      0.292     0.0304      0.817 
+     0.559      0.906      0.467      0.862      0.848 
+     0.292      0.467      0.633      0.995      0.992 
+         0      0.862      0.995      0.677     0.0326 
+         0   7.03e-17      0.992     0.0326        0.7 

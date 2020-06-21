@@ -1,0 +1,5 @@
+A)
+Found minimum of Rosenbrock in 7260 steps:          1      0.999 
+Found minimum of Himmelblau in 20 steps:          3          2 
+B)
+Found minimum of Deviation in 20599 steps:        152    0.00335      -23.5 

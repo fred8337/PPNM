@@ -33,6 +33,7 @@ public static class main
     public static double[] Errors = new double[100];
     public static void Main()
     {
+        Console.WriteLine("A)");
         vector guesses = new vector(new double[]{0, 0});
         int before = qnewton.steps;
         var res = qnewton.QNewton(rosenbrock, guesses, 0.000001);
@@ -43,6 +44,8 @@ public static class main
         after = qnewton.steps;
         res2.print($"Found minimum of Himmelblau in {after-before} steps: ");
 
+
+        Console.WriteLine("B)");
         var data = File.ReadAllLines("/home/fred8337/PPNM/PPNM/Minimization/data.txt");
         var size = data.Length;
         

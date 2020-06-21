@@ -16,6 +16,6 @@
   6.53e-13  -1.12e-13      0.368   4.16e-17  -4.71e-10 
   3.36e-15  -5.55e-17          0       1.08   7.84e-12 
  -4.44e-16  -3.33e-10  -4.71e-10   7.84e-12       3.16 
--0.924 -0.044 0.368 1.083 3.159 
-The time for diagonalization of size 100 matrix was: 00:00:00.0405720
-The time for diagonalization of size 1000 matrix was: 00:00:50.4837530
+    -0.924    -0.0436      0.368       1.08       3.16 
+The time for diagonalization of size 100 matrix was: 00:00:00.0406450
+The time for diagonalization of size 1000 matrix was: 00:00:47.9073340

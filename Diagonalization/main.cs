@@ -38,10 +38,10 @@ public static class main
         var timing = DateTime.Now;
         Diagonalization.jacobi(A);
         Console.WriteLine($"The time for diagonalization of size 100 matrix was: {DateTime.Now.Subtract(timing)}");
-        A = genSym(1000);
+        A = genSym(200);
         timing = DateTime.Now;
         Diagonalization.jacobi(A);
-        Console.WriteLine($"The time for diagonalization of size 1000 matrix was: {DateTime.Now.Subtract(timing)}");
+        Console.WriteLine($"The time for diagonalization of size 200 matrix was: {DateTime.Now.Subtract(timing)}");
         }
     public static matrix genSym(int size)
     {

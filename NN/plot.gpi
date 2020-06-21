@@ -1,0 +1,7 @@
+set term svg fsize 18 background rgb "white"
+set out "plot.svg"
+set tics out
+set key out
+plot "Plot.txt" u 1:2 t "Data" w dots \
+,"Plot2.txt" u 1:2 t "Fit" w l \
+,"Plot2.txt" u 1:3 t "Deriv" w l

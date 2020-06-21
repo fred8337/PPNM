@@ -24,20 +24,22 @@ public static class main
     };
     public static void Main()
     {
+        Console.WriteLine("A)");
         var res1 = Integrator.integrator(F1, 0, 1, 0.001, 0.001);
-        Console.WriteLine($"Res1 is {res1} compared to {2.0/3.0} in {Calls} calls");
+        Console.WriteLine($"Sqrt(x) from 0 to 1 is {res1} compared to {2.0/3.0} in {Calls} calls");
         
         Calls = 0;
         var res2 = Integrator.integrator(F2, 0, 1, 0.001, 0.001);
-        Console.WriteLine($"Res2 is {res2} compared to {Math.PI} in {Calls} calls");
+        Console.WriteLine($"4sqrt(1-x^2) from 0 to 1 is {res2} compared to {Math.PI} in {Calls} calls");
 
+        Console.WriteLine("B)");
         Calls = 0;
         var res3 = Integrator.clenshaw(F3, 0, 1, 0.001, 0.001);
-        Console.WriteLine($"Res3 is {res3} compared to {2.0} in {Calls} calls");
+        Console.WriteLine($"1/sqrt(x) from 0 to 1 is {res3} compared to {2.0} in {Calls} calls");
 
         Calls = 0;
         var res4 = Integrator.clenshaw(F4, 0, 1, 0.001, 0.001);
-        Console.WriteLine($"Res4 is {res4} compared to {-4} in {Calls} calls");
+        Console.WriteLine($"Log(x)/sqrt(x) from 0 to 1 is {res4} compared to {-4} in {Calls} calls");
 
         Calls = 0;
         var res5 = Integrator.clenshaw(F2, 0 , 1, 0.000001, 0.000001);

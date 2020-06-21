@@ -1,0 +1,7 @@
+set term svg fsize 18 background rgb "white"
+set out "plot2.svg"
+set tics out
+set key out
+plot "Plot2.txt" u 1:2 t "S" w l \
+,"Plot2.txt" u 1:3 t "I" w l \
+,"Plot2.txt" u 1:4 t "R" w l
