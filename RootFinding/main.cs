@@ -15,6 +15,10 @@ public static class main
         result_vector[1] = 200*x[1]-200*Math.Pow(x[0],2);
         return result_vector;
     };
+    Func<double,vector,vector> wave = (x,y)=>
+	{ 
+		return new vector(y[1], 2*(-1/x-e)*y[0]);
+	};
     public static void Main()
     {
         vector guesses = new vector(new double[]{0});

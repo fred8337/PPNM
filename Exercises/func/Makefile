@@ -4,7 +4,7 @@ out.txt: main.exe
 main.exe: main.cs matlib.dll
 	mcs $< -reference:matlib.dll
 
-LIBDIR =../matlib
+LIBDIR =../../matlib
 SRC = $(LIBDIR)/integration/quado8.cs
 SRC += $(LIBDIR)/integration/quado4.cs
 matlib.dll: $(SRC)

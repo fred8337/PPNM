@@ -10,7 +10,7 @@ out.txt: sin.exe Makefile
 plot.svg: plot.gpi out.txt
 	gnuplot $<
 
-LIBDIR = ../matlib
+LIBDIR = ../../matlib
 SRC := $(LIBDIR)/matrix/vector.cs
 SRC += $(LIBDIR)/ode/ode.cs
 matlib.dll: sin.cs $(SRC)
